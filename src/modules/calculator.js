@@ -14,7 +14,10 @@ const calc = () => {
   if (!calcType || !calcTypeMaterial || !calcInput || !calcTotal) {
     return;
   }
-
+  const calcTotalLabel = calcBlock.querySelector('label[for="calc-total"]');
+  if (calcTotalLabel) {
+    calcTotalLabel.textContent += " рублей";
+  }
   calcBlock.addEventListener("input", (e) => {
     if (
       calcType.selectedIndex === 0 ||
@@ -24,7 +27,9 @@ const calc = () => {
       calcTotal.value = "";
       return;
     }
-    const prevValue = +calcTotal.value;
+    let prevValue = isNaN(parseInt(calcTotal.value))
+      ? 0
+      : parseInt(calcTotal.value);
     const curValue =
       +calcInput.value *
       +calcTypeMaterial.options[+calcTypeMaterial.selectedIndex].value *
@@ -36,11 +41,11 @@ const calc = () => {
           return timeFraction;
         },
         draw(progress) {
-          calcTotal.value = Math.round(
-            prevValue + progress * (curValue - prevValue)
-          );
+          calcTotal.value =
+            1000 * Math.round(prevValue + progress * (curValue - prevValue));
         },
       });
+      // calcTotal.setAttribute("type", "text");
     }
   });
 };
