@@ -32,6 +32,7 @@ const myslider = () => {
       showElems = 3; // сколько показывать элементов
       if (document.documentElement.clientWidth < 576) {
         showElems = 1;
+        benefitsWrap.style.justifyContent = "center";
       }
       if (sliderId >= benefitItems.length) {
         sliderId = 0;

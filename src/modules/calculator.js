@@ -14,10 +14,30 @@ const calc = () => {
   if (!calcType || !calcTypeMaterial || !calcInput || !calcTotal) {
     return;
   }
-  const calcTotalLabel = calcBlock.querySelector('label[for="calc-total"]');
-  if (calcTotalLabel) {
-    calcTotalLabel.textContent += " рублей";
+  const styleAdd = document.createElement("style");
+  styleAdd.textContent = `
+  
+  .rub:after {
+    content: '₽';
+    position: absolute;
+    top: 42%;
+    right: 4%;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
   }
+  @media(max-width: 992px) {
+    .rub:after {
+      top: 50%;
+      right: 4%;
+      font-weight: bold;
+      display: inline-block
+    }
+  }
+`;
+  document.body.append(styleAdd);
+  calcTotal.closest(".form-group").classList.add("rub");
+
   calcBlock.addEventListener("input", (e) => {
     if (
       calcType.selectedIndex === 0 ||

@@ -22,6 +22,7 @@ const slider = () => {
     let sliderId = 0;
     if (document.documentElement.clientWidth < 576) {
       showElems = 1;
+      // serviceSlidesRow.style.justifyContent = "center";
     }
 
     const initSlider = () => {
