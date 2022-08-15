@@ -14,11 +14,12 @@ sliderBenefits();
 sliderServices();
 modals();
 scroller();
-timer("11 september 2022", "#order_1");
-timer("15 september 2022", "#order_2");
+timer("11 july 2022", "#order_1");
+timer("15 july 2022", "#order_2");
 formValid();
 certificateBox();
-sendForm();
 maskPhone();
+sendForm();
+
 calc();
 reviesGetter();

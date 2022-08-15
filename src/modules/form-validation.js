@@ -11,7 +11,7 @@ const formvalidation = () => {
         e.target.getAttribute("name") &&
         e.target.getAttribute("name") === "phone"
       ) {
-        e.target.value = e.target.value.replace(/[^\d\+\(\)\-]+/g, "");
+        e.target.value = e.target.value.replace(/[^\d\+\(\)\- ]+/g, "");
       }
       if (
         e.target.getAttribute("id") &&

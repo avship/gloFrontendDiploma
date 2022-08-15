@@ -6,6 +6,7 @@ const tempTimer = (deadline, sectionToTimer) => {
   if (!orderSection) {
     return;
   }
+  let idTimer;
   const daysLeftSpan = orderSection.querySelector(".count_1 span");
   const hoursLeftSpan = orderSection.querySelector(".count_2 span");
   const minutesLeftSpan = orderSection.querySelector(".count_3 span");
@@ -24,13 +25,21 @@ const tempTimer = (deadline, sectionToTimer) => {
   };
   const updateTimer = () => {
     const { days, hours, minutes, seconds } = getTimeRemaining(deadline);
+    if (seconds < 0) {
+      clearInterval(idTimer);
+      daysLeftSpan.textContent = "00";
+      hoursLeftSpan.textContent = "00";
+      minutesLeftSpan.textContent = "00";
+      secondsLeftSpan.textContent = "00";
+      return;
+    }
     daysLeftSpan.textContent = String(days).padStart(2, "0");
     hoursLeftSpan.textContent = String(hours).padStart(2, "0");
     minutesLeftSpan.textContent = String(minutes).padStart(2, "0");
     secondsLeftSpan.textContent = String(seconds).padStart(2, "0");
   };
 
-  setInterval(updateTimer, 1000, deadline);
+  idTimer = setInterval(updateTimer, 1000, deadline);
 };
 
 module.exports = tempTimer;

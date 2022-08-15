@@ -20,7 +20,7 @@ const reviews = () => {
       if (reviewTop) {
         reviewTop.style.opacity = 1;
       }
-      console.log(jsonCards);
+      // console.log(jsonCards);
       if (currentId >= jsonCards.length) {
         currentId = 0;
       }
