@@ -56,7 +56,7 @@ const modals = () => {
       ) {
         e.preventDefault();
         const serviceText = e.target.closest(".service-text");
-        console.log(serviceText);
+        // console.log(serviceText);
         if (serviceText) {
           const h3 = serviceText.querySelector("h3");
           if (h3) {
