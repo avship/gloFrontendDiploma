@@ -17,10 +17,13 @@ const slider = () => {
     }
     serviceSlidesRow.parentNode.appendChild(arrows);
     slides = Array.from(slides).map((e) => e.parentNode);
-
+    // slides.forEach((e) => {
+    //   e.classList.remove("col-md-12");
+    //   e.classList.add("col-md-6");
+    // });
     let showElems = 2;
     let sliderId = 0;
-    if (document.documentElement.clientWidth < 576) {
+    if (document.documentElement.clientWidth < 992) {
       showElems = 1;
       // serviceSlidesRow.style.justifyContent = "center";
     }
