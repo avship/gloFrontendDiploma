@@ -12,6 +12,7 @@ const scrollToTop = () => {
     });
     upBtn.addEventListener("click", (e) => {
       const fromPos = document.documentElement.scrollTop;
+
       animate({
         duration: 600,
         timing(timeFraction) {
