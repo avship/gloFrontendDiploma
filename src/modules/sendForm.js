@@ -74,6 +74,9 @@ const sendFormModule = () => {
     if (calcTotal && calcTotal.value !== "" && calcTotal.value !== "0") {
       formBody["calc-total"] = calcTotal.value.trim();
     }
+    if (sessionStorage.getItem("modal")) {
+      formBody["subject"] = sessionStorage.getItem("modal");
+    }
     sendData(formBody)
       .then((data) => {
         pElem.textContent = "Спасибо! Мы скоро свяжемся с Вами!";
@@ -83,6 +86,9 @@ const sendFormModule = () => {
             e.value = "";
           });
         }, 2900);
+        if (sessionStorage.getItem("modal")) {
+          sessionStorage.removeItem("modal");
+        }
       })
       .catch((err) => {
         pElem.textContent = "Ошибка отправки данных";

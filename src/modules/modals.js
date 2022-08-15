@@ -46,15 +46,29 @@ const modals = () => {
         !modalServices.classList.contains("services-modal")
       ) {
         closeModal(modalServices, "services-modal");
+        if (sessionStorage.getItem("modal")) {
+          sessionStorage.removeItem("modal");
+        }
       }
       if (
         e.target.closest(".btn") &&
         e.target.closest(".btn").getAttribute("href") === "#application"
       ) {
         e.preventDefault();
+        const serviceText = e.target.closest(".service-text");
+        console.log(serviceText);
+        if (serviceText) {
+          const h3 = serviceText.querySelector("h3");
+          if (h3) {
+            sessionStorage.setItem("modal", h3.textContent);
+          }
+        }
         openModal(modalServices, "services-modal");
       }
       if (e.target.closest(".services-modal__close")) {
+        if (sessionStorage.getItem("modal")) {
+          sessionStorage.removeItem("modal");
+        }
         closeModal(modalServices, "services-modal");
       }
     });
