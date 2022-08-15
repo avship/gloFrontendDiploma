@@ -8,6 +8,7 @@ const certificateBox = require("./modules/certifiicates");
 const sendForm = require("./modules/sendForm");
 const maskPhone = require("./modules/phone_mask");
 const calc = require("./modules/calculator");
+const reviesGetter = require("./modules/reviewsGetter");
 
 sliderBenefits();
 sliderServices();
@@ -20,3 +21,4 @@ certificateBox();
 sendForm();
 maskPhone();
 calc();
+reviesGetter();

@@ -26,6 +26,7 @@ const sendFormModule = () => {
       phoneInp.classList.add("error");
       flag = false;
       phoneInp.addEventListener("input", (e) => {
+        console.log("Проверялка телефончиГа!");
         if (e.target.value.replace(/[^\d]/, "").length === 11) {
           phoneInp.style.borderColor = "rgb(223, 223, 223)";
           phoneInp.classList.remove("error");
