@@ -21,6 +21,7 @@ const calc = () => {
       calcTypeMaterial.selectedIndex === 0 ||
       calcInput.value === ""
     ) {
+      calcTotal.value = "";
       return;
     }
     const prevValue = +calcTotal.value;

@@ -38,7 +38,7 @@ const tempTimer = (deadline, sectionToTimer) => {
     minutesLeftSpan.textContent = String(minutes).padStart(2, "0");
     secondsLeftSpan.textContent = String(seconds).padStart(2, "0");
   };
-
+  updateTimer(deadline);
   idTimer = setInterval(updateTimer, 1000, deadline);
 };
 
